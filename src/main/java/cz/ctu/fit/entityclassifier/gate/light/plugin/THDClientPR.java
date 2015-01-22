@@ -14,6 +14,7 @@ import gate.creole.ExecutionException;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.metadata.CreoleParameter;
 import gate.creole.metadata.CreoleResource;
+import gate.creole.metadata.RunTime;
 
 /**
  * @author Milan Dojchinovski
@@ -84,6 +85,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
      * @param apikey the apikey to set
      */
     @CreoleParameter(comment = "API key.", defaultValue="")
+    @RunTime
     public void setApikey(String apikey) {
         this.apikey = apikey;
     }
