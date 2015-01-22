@@ -26,14 +26,13 @@ import gate.creole.metadata.RunTime;
 public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingResource {
 
     private String apikey;
-    private String outputASName;
-    private String annotationsName;
-    private String dbpediaOntologyLocation;
     private String knowledgeBase;
     private String entityType;
     private String lang;
     private String provenance;
-    private String longEntityLinking;
+    private String typesFilter;
+    private String linkingMethod;
+    private String spottingMethod;
     
     public THDClientPR() {
     }
@@ -55,13 +54,13 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
         TextProcessor.getInstance().processDocument(
                 doc,
                 apikey,
-                outputASName,
-                annotationsName,
                 knowledgeBase,
                 entityType,
                 lang,
                 provenance,
-                longEntityLinking);
+                typesFilter,
+                linkingMethod,
+                spottingMethod);
     }
     
     @Override
@@ -91,48 +90,6 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     }
 
     /**
-     * @return the outputASName
-     */
-    public String getOutputASName() {
-        return outputASName;
-    }
-
-    /**
-     * @param outputASName the outputASName to set
-     */
-    public void setOutputASName(String outputASName) {
-        this.outputASName = outputASName;
-    }
-
-    /**
-     * @return the annotationsName
-     */
-    public String getAnnotationsName() {
-        return annotationsName;
-    }
-
-    /**
-     * @param annotationsName the annotationsName to set
-     */
-    public void setAnnotationsName(String annotationsName) {
-        this.annotationsName = annotationsName;
-    }
-
-    /**
-     * @return the dbpediaOntologyLocation
-     */
-    public String getDbpediaOntologyLocation() {
-        return dbpediaOntologyLocation;
-    }
-
-    /**
-     * @param dbpediaOntologyLocation the dbpediaOntologyLocation to set
-     */
-    public void setDbpediaOntologyLocation(String dbpediaOntologyLocation) {
-        this.dbpediaOntologyLocation = dbpediaOntologyLocation;
-    }
-
-    /**
      * @return the knowledgeBase
      */
     public String getKnowledgeBase() {
@@ -142,6 +99,8 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param knowledgeBase the knowledgeBase to set
      */
+    @CreoleParameter(comment = "knowledge base", defaultValue="linkedHypernymsDataset")
+    @RunTime
     public void setKnowledgeBase(String knowledgeBase) {
         this.knowledgeBase = knowledgeBase;
     }
@@ -156,6 +115,8 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param entityType the entityType to set
      */
+    @CreoleParameter(comment = "entity type", defaultValue="ne")
+    @RunTime
     public void setEntityType(String entityType) {
         this.entityType = entityType;
     }
@@ -170,6 +131,8 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param lang the lang to set
      */
+    @CreoleParameter(comment = "language", defaultValue="en")
+    @RunTime
     public void setLang(String lang) {
         this.lang = lang;
     }
@@ -184,21 +147,58 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param provenance the provenance to set
      */
+    @CreoleParameter(comment = "provenance", defaultValue="thd,dbpedia")
+    @RunTime
     public void setProvenance(String provenance) {
         this.provenance = provenance;
     }
 
     /**
-     * @return the longEntityLinking
+     * @return the typesFilter
      */
-    public String getLongEntityLinking() {
-        return longEntityLinking;
+    public String getTypesFilter() {
+        return typesFilter;
     }
 
     /**
-     * @param longEntityLinking the longEntityLinking to set
+     * @param typesFilter
      */
-    public void setLongEntityLinking(String longEntityLinking) {
-        this.longEntityLinking = longEntityLinking;
+    @CreoleParameter(comment = "typesFilter", defaultValue="dbo")
+    @RunTime
+    public void setTypesFilter(String typesFilter) {
+        this.typesFilter = typesFilter;
     }
+
+    /**
+     * @return the linkingMethod
+     */
+    public String getLinkingMethod() {
+        return linkingMethod;
+    }
+
+    /**
+     * @param linkingMethod
+     */
+    @CreoleParameter(comment = "linkingMethod", defaultValue="LuceneSearchSkipDisPage")
+    @RunTime
+    public void setLinkingMethod(String linkingMethod) {
+        this.linkingMethod = linkingMethod;
+    }
+
+    /**
+     * @return the typesFilter
+     */
+    public String getSpottingMethod() {
+        return spottingMethod;
+    }
+
+    /**
+     * @param typesFilter
+     */
+    @CreoleParameter(comment = "spottingMethod", defaultValue="grammars")
+    @RunTime
+    public void setSpottingMethod(String spottingMethod) {
+        this.spottingMethod = spottingMethod;
+    }
+
 }

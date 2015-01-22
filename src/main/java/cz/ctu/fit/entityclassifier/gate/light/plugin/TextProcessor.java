@@ -43,13 +43,13 @@ public class TextProcessor {
     public void processDocument(
             Document doc,
             String apikey,
-            String outputASName,
-            String annotationsName,
             String knowledgeBase,
             String entityType,
             String lang,
             String provenance,
-            String longEntityLinking){
+            String typesFilter,
+            String linkingMethod,
+            String spottingMethod){
         
         try {
 
@@ -67,10 +67,18 @@ public class TextProcessor {
             if(provenance != null){
                 path += "&provenance="+provenance;
             }
-            if(longEntityLinking != null){
-                path += "&priority_entity_linking="+longEntityLinking;
+            if(typesFilter != null){
+                path += "&types_filter="+typesFilter;
+            }
+            if(linkingMethod != null){
+                path += "&linking_method="+linkingMethod;
+            }
+            if(spottingMethod != null){
+                path += "&spotting_method="+spottingMethod;
             }
 
+            System.out.println(path);
+            
             URL url = new URL(path);
 
             StringBuffer buffer = new StringBuffer();
@@ -96,8 +104,9 @@ public class TextProcessor {
             in.close();
             isr.close();
             String result = buffer.toString();
-//            System.out.println(result);
-            AnnotationSet thdAnnots = doc.getAnnotations(outputASName);
+            System.out.println(result);
+            AnnotationSet as_default = doc.getAnnotations();
+            AnnotationSet annSetEntities = as_default.get("NamedEntity");            
             
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -122,6 +131,12 @@ public class TextProcessor {
                         NodeList tList = entity.getElementsByTagName("type");
                         FeatureMap fm = gate.Factory.newFeatureMap();
 
+                        int entityURIcounter    = 0;
+                        int entityTypeCounter   = 0;
+                        
+                        ArrayList<String> assignedEntityUris = new ArrayList();
+                        ArrayList<String> assignedTypes      = new ArrayList();
+
                         for (int j = 0; j < tList.getLength(); j++) {
                             
                             Node nType = tList.item(j);
@@ -133,24 +148,30 @@ public class TextProcessor {
                                 Node entityURI = type.getElementsByTagName("entityURI").item(0);
 
                                 if(entityLabel != null && entityURI != null) {
-
-                                    fm.put("entity", entityLabel.getTextContent());
-                                    fm.put("entityURI", entityURI.getTextContent());
-                                    fm.put("entityType", foundEntityType);
+                                    if(!assignedEntityUris.contains(entityURI.getTextContent())) {
+                                        fm.put("entity", entityLabel.getTextContent());
+                                        fm.put("itsrdf:taIdentRef"+entityURIcounter, entityURI.getTextContent());
+                                        fm.put("entityType", foundEntityType);
+                                        assignedEntityUris.add(entityURI.getTextContent());
+                                        entityURIcounter++;
+                                    }
                                 }
 
                                 Node typeLabel = type.getElementsByTagName("typeLabel").item(0);
                                 Node typeURI = type.getElementsByTagName("typeURI").item(0);
-
+//
                                 if(typeLabel != null && typeURI != null) {
-                                        
-                                    fm.put("typeLabel", typeLabel.getTextContent());
-                                    fm.put("typeURI", typeURI.getTextContent());
-                                    fm.put("entityType", foundEntityType);
+                                    if(!assignedTypes.contains(typeURI.getTextContent())) {
+                                        fm.put("typeLabel"+entityTypeCounter, typeLabel.getTextContent());
+                                        fm.put("rdf:type"+entityTypeCounter, typeURI.getTextContent());
+//                                        fm.put("entityType", foundEntityType);
+                                        assignedTypes.add(typeURI.getTextContent());
+                                        entityTypeCounter++;
+                                    }
                                 }
                             }
                         }
-                        thdAnnots.add(startOffset, endOffset, annotationsName, fm);
+                        as_default.add(startOffset, endOffset, "NamedEntity", fm);
                     } else {
                         System.out.println("Underlying string not present");
                     }
