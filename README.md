@@ -16,38 +16,34 @@ This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it p
 
 #### Steps: ####
 
-1. **Download and install GATE at your PC.**
-You can download it from http://gate.ac.uk/download/
-
-2. **Clone the repository in your GATE plugins directory**. In MAC OS the plugins directory can be found in ```/Applications/GATE_Developer_7.1/plugins```
+1. **Clone the repository in your GATE plugins directory.** In MAC OS the plugins directory can be found in ```/Applications/GATE_Developer_7.1/plugins```
 
     ```
     git clone https://m1ci@bitbucket.org/entityclassifier/entityclassifier-gate-light-plugin.git
     ```
 
-3. **Package the plugin with Maven.**
+2. **Build the plugin.** Run the ```build.sh``` script found in the ```/script``` folder
 
     ```
-    mvn package
+    sh build.sh
     ```
 
-4. **Request an API key for the REST API**. Request an API key using the form at http://entityclassifier.eu/thd/docs/#apikeyform
+3. **Request a free API key for the REST API.** Request an API key using the Web form http://entityclassifier.eu/thd/docs/#apikeyformfree!
 
+
+4. **Download and install GATE.**
+You can download it from http://gate.ac.uk/download/
 
 5. **Start GATE and enable the plugin in the CREOLE plugin manager.** Search for Entityclassifier.eu and select load now and load always.
 
-6. **Create a corpus pipeline.**
+6. **Create a corpus pipeline.** We recommend following order of the processing resources in the pipeline:
 
     * Document Reset PR
-    * ANNIE English Tokeniser PR
-    * ANNIE Sentence Splitter PR
-    * ANNIE POS Tagger PR
-    * JAPE Transducer PR - with a JAPE grammar which will perform named entity spotting. For English use the ```en_entity_extraction-v1.jape```. We also provide grammars for entity spotting for German and Dutch. The grammars are located in ```data/entity-extraction-grammars```
-    * Entityclassifier.eu REST API PR - create an instance of classifier processing resource and add it at the end of the pipeline. When instantiating you can specify the language of the text on which you will run named entity recognition.
+    * Entityclassifier.eu Light REST API PR - create an instance of the processing resource and add it at the end of the pipeline.
 
 6. **Create a document corpus and run the pipeline.**
 
-7. **Check the results!** - the spotted entities are annotated as ```NamedEntity``` annotations. Each entity has a ```disambiguation URI``` which is encoded as annotation feature ```itsrdf:taIdentRef=...```. Each assigned type is also present as annotation feature in the form of ```rdf:typeX=...```
+7. **Check the results!** - the spotted entities are annotated as ```NamedEntity``` annotations. Each entity has a ```disambiguation URI``` which is encoded as annotation feature ```itsrdf:taIdentRefX=...```. Each assigned type is also present as annotation feature in the form of ```rdf:typeX=...```
 
 ![entityclassifier-sa-gate-plugin-ss-1.png](https://bitbucket.org/repo/dAnKEK/images/3433177732-entityclassifier-sa-gate-plugin-ss-1.png)
 
