@@ -20,7 +20,7 @@ import gate.creole.metadata.CreoleResource;
  * Twitter: @m1ci
  * www: http://dojchinovski.mk
  */
-@CreoleResource(name = "Entityclassifier.eu Stand-Alone PR", comment = "Perform named entity recognition over a GATE corpus")
+@CreoleResource(name = "Entityclassifier.eu Light REST API PR", comment = "Perform named entity recognition over a GATE corpus")
 public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingResource {
 
     private String apikey;
