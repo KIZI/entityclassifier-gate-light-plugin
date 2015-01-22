@@ -25,15 +25,18 @@ You can download it from http://gate.ac.uk/download/
     git clone https://m1ci@bitbucket.org/entityclassifier/entityclassifier-gate-light-plugin.git
     ```
 
-3. **Run the build script found in the script folder.** It will download all required datasets, compile and prepare all required configuration files. BTW, grab a coffee or something, it will take some time ;)
+3. **Package the plugin with Maven.**
 
     ```
-    sh build.sh
+    mvn package
     ```
 
-4. **Start GATE and enable the plugin in the CREOLE plugin manager.** Search for Entityclassifier.eu and select load now and load always.
+4. **Request an API key for the REST API**. Request an API key using the form at http://localhost:8080/thd/docs/#apikeyform
 
-5. **Create a corpus pipeline.**
+
+5. **Start GATE and enable the plugin in the CREOLE plugin manager.** Search for Entityclassifier.eu and select load now and load always.
+
+6. **Create a corpus pipeline.**
 
     * Document Reset PR
     * ANNIE English Tokeniser PR
