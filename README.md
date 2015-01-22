@@ -1,6 +1,6 @@
 # Entityclassifier.eu API LIGHT Plugin for GATE #
 
-This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it perform Named Entity Recognition over English, German and Dutch written texts. It can perform:
+This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it perform Named Entity Recognition over English, German and Dutch written texts. It is a **light version** of the GATE plugin. If you don't want to depend on the REST API you can use the **stand-alone** version of the API. Using the light version you can perform:
 
 * ***Entity Spotting*** - each detected named entity in the text will be marked with ```NamedEntity``` annotation.
 
