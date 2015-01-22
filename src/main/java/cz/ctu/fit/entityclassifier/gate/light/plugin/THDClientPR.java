@@ -12,6 +12,7 @@ import gate.Resource;
 import gate.creole.AbstractLanguageAnalyser;
 import gate.creole.ExecutionException;
 import gate.creole.ResourceInstantiationException;
+import gate.creole.metadata.CreoleParameter;
 import gate.creole.metadata.CreoleResource;
 
 /**
@@ -82,6 +83,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param apikey the apikey to set
      */
+    @CreoleParameter(comment = "API key.", defaultValue="")
     public void setApikey(String apikey) {
         this.apikey = apikey;
     }
