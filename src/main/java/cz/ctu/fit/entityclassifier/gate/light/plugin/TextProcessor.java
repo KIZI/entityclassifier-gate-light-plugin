@@ -16,7 +16,6 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
@@ -77,8 +76,6 @@ public class TextProcessor {
                 path += "&spotting_method="+spottingMethod;
             }
 
-            System.out.println(path);
-            
             URL url = new URL(path);
 
             StringBuffer buffer = new StringBuffer();
@@ -104,9 +101,9 @@ public class TextProcessor {
             in.close();
             isr.close();
             String result = buffer.toString();
-            System.out.println(result);
+//            System.out.println(result);
             AnnotationSet as_default = doc.getAnnotations();
-            AnnotationSet annSetEntities = as_default.get("NamedEntity");            
+//            AnnotationSet annSetEntities = as_default.get("NamedEntity");            
             
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -173,7 +170,7 @@ public class TextProcessor {
                         }
                         as_default.add(startOffset, endOffset, "NamedEntity", fm);
                     } else {
-                        System.out.println("Underlying string not present");
+//                        System.out.println("Underlying string not present");
                     }
                 }
             }
