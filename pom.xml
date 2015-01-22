@@ -4,7 +4,7 @@
 
   <groupId>cz.ctu.fit</groupId>
   <artifactId>entityclassifier-gate-light-plugin</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>Entityclassifier.eu_NER-LIGHT</name>

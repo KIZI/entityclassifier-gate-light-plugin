@@ -8,6 +8,7 @@
 ############## Variables ################
 
 echo "Compiling the plugin ..."
+cd ..
 mvn package
 
 echo "Copying compiled jar ..."
