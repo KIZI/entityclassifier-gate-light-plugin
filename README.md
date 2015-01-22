@@ -31,7 +31,7 @@ You can download it from http://gate.ac.uk/download/
     mvn package
     ```
 
-4. **Request an API key for the REST API**. Request an API key using the form at http://localhost:8080/thd/docs/#apikeyform
+4. **Request an API key for the REST API**. Request an API key using the form at http://entityclassifier.eu/thd/docs/#apikeyform
 
 
 5. **Start GATE and enable the plugin in the CREOLE plugin manager.** Search for Entityclassifier.eu and select load now and load always.
