@@ -12,6 +12,7 @@ import gate.Resource;
 import gate.creole.AbstractLanguageAnalyser;
 import gate.creole.ExecutionException;
 import gate.creole.ResourceInstantiationException;
+import gate.creole.metadata.CreoleResource;
 
 /**
  * @author Milan Dojchinovski
@@ -19,6 +20,7 @@ import gate.creole.ResourceInstantiationException;
  * Twitter: @m1ci
  * www: http://dojchinovski.mk
  */
+@CreoleResource(name = "Entityclassifier.eu Stand-Alone PR", comment = "Perform named entity recognition over a GATE corpus")
 public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingResource {
 
     private String apikey;
