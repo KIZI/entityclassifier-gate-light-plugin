@@ -21,29 +21,13 @@ This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it p
     http://ner.vse.cz/GATE/gate-update-site.xml
     ```
 
-
-<!---
-1. **Clone the repository in your GATE plugins directory.** In MAC OS the plugins directory can be found in ```/Applications/GATE_Developer_7.1/plugins```
-
-    ```
-    git clone https://m1ci@bitbucket.org/entityclassifier/entityclassifier-gate-light-plugin.git
-    ```
-
-2. **Build the plugin.** Run the ```build.sh``` script found in the ```/script``` folder
-
-    ```
-    sh build.sh
-    ```
+2. **Install the plugin.**  In the CREOLE Plugin Manager open the ```Available to Install``` tab, check the ```Entityclassifier NER Light``` plugin and click ```Apply All```.
 
 3. **Request a free API key for the REST API.** Request an API key using the Web form http://entityclassifier.eu/thd/docs/#apikeyformfree!
 
+4. **Enable the plugin.** In the CREOLE Plugin Manager go to ```Available to Install```, search for ```Entityclassifier_NER_Light``` and select load now and load always.
 
-4. **Download and install GATE.**
-You can download it from http://gate.ac.uk/download/
-
-5. **Start GATE and enable the plugin in the CREOLE plugin manager.** Search for Entityclassifier.eu and select load now and load always.
-
-6. **Create a corpus pipeline.** We recommend following order of the processing resources in the pipeline:
+5. **Create a corpus pipeline.** We recommend following order of the processing resources in the pipeline:
 
     * Document Reset PR
     * Entityclassifier.eu Light REST API PR - create an instance of the processing resource and add it at the end of the pipeline.
@@ -53,8 +37,6 @@ You can download it from http://gate.ac.uk/download/
 7. **Check the results!** - the spotted entities are annotated as ```NamedEntity``` annotations. Each entity has a ```disambiguation URI``` which is encoded as annotation feature ```itsrdf:taIdentRefX=...```. Each assigned type is also present as annotation feature in the form of ```rdf:typeX=...```
 
 ![entityclassifier-sa-gate-plugin-ss-1.png](https://bitbucket.org/repo/dAnKEK/images/3433177732-entityclassifier-sa-gate-plugin-ss-1.png)
-
--->
 
 ***Enjoy discovering entities!***
 
