@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<CREOLE-DIRECTORY ID="org.vse.fis.keg.Entityclassifier NER Light" VERSION="1.0">
+    <JAR scan="true">Entityclassifier.eu_NER-LIGHT-1.0.jar</JAR>
+</CREOLE-DIRECTORY>
