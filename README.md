@@ -49,7 +49,7 @@ License
 
 Licensed under the [GNU General Public License Version 3 (GNU GPLv3)](http://www.gnu.org/licenses/gpl.html).
 
-Copyright (c) 2014
+Copyright (c) 2014-2015
 
 * Milan Dojchinovski - <milan.dojchinovski@fit.cvut.cz>
 
