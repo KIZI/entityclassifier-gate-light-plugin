@@ -15,7 +15,14 @@ This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it p
 ### How to start using it? ###
 
 #### Steps: ####
+1. **Add our plugin repository.** Open ```CREOLE Plugin Manager -> Configuration``` and add the following repository
 
+    ```
+    http://ner.vse.cz/GATE/gate-update-site.xml
+    ```
+
+
+<!---
 1. **Clone the repository in your GATE plugins directory.** In MAC OS the plugins directory can be found in ```/Applications/GATE_Developer_7.1/plugins```
 
     ```
@@ -46,6 +53,8 @@ You can download it from http://gate.ac.uk/download/
 7. **Check the results!** - the spotted entities are annotated as ```NamedEntity``` annotations. Each entity has a ```disambiguation URI``` which is encoded as annotation feature ```itsrdf:taIdentRefX=...```. Each assigned type is also present as annotation feature in the form of ```rdf:typeX=...```
 
 ![entityclassifier-sa-gate-plugin-ss-1.png](https://bitbucket.org/repo/dAnKEK/images/3433177732-entityclassifier-sa-gate-plugin-ss-1.png)
+
+-->
 
 ***Enjoy discovering entities!***
 
