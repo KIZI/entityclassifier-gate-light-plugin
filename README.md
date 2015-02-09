@@ -36,7 +36,7 @@ This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it p
 
 7. **Check the results!** - the spotted entities are annotated as ```NamedEntity``` annotations. Each entity has a ```disambiguation URI``` which is encoded as annotation feature ```itsrdf:taIdentRefX=...```. Each assigned type is also present as annotation feature in the form of ```rdf:typeX=...```
 
-![entityclassifier-sa-gate-plugin-ss-1.png](https://bitbucket.org/repo/dAnKEK/images/3433177732-entityclassifier-sa-gate-plugin-ss-1.png)
+![light-gate-plugin-1.png](https://bitbucket.org/repo/M6EXM6/images/1690205146-light-gate-plugin-1.png)
 
 ***Enjoy discovering entities!***
 
