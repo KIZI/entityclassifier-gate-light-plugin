@@ -21,20 +21,18 @@ This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it p
     http://ner.vse.cz/GATE/gate-update-site.xml
     ```
 
-2. **Install the plugin.**  In the CREOLE Plugin Manager open the ```Available to Install``` tab, check the ```Entityclassifier NER Light``` plugin and click ```Apply All```.
+2. **Install the plugin.**  In the ```CREOLE Plugin Manager``` go to ```Available to Install``` tab, check ```Entityclassifier_NER_Stand_Alone``` and click ```Apply all```, then go to the ```Available plugins``` tab and select ```load now``` and ```load always```.
 
 3. **Request a free API key for the REST API.** Request an API key using the Web form http://entityclassifier.eu/thd/docs/#apikeyformfree!
 
-4. **Enable the plugin.** In the CREOLE Plugin Manager go to ```Available to Install```, search for ```Entityclassifier_NER_Light``` and select load now and load always.
-
-5. **Create a corpus pipeline.** We recommend following order of the processing resources in the pipeline:
+4. **Create a corpus pipeline.** We recommend following order of the processing resources in the pipeline:
 
     * Document Reset PR
     * Entityclassifier.eu Light REST API PR - create an instance of the processing resource and add it at the end of the pipeline.
 
-6. **Create a document corpus and run the pipeline.**
+5. **Create a document corpus and run the pipeline.**
 
-7. **Check the results!** - the spotted entities are annotated as ```NamedEntity``` annotations. Each entity has a ```disambiguation URI``` which is encoded as annotation feature ```itsrdf:taIdentRefX=...```. Each assigned type is also present as annotation feature in the form of ```rdf:typeX=...```
+6. **Check the results!** - the spotted entities are annotated as ```NamedEntity``` annotations. Each entity has a ```disambiguation URI``` which is encoded as annotation feature ```itsrdf:taIdentRefX=...```. Each assigned type is also present as annotation feature in the form of ```rdf:typeX=...```
 
 ![light-gate-plugin-1.png](https://bitbucket.org/repo/M6EXM6/images/1690205146-light-gate-plugin-1.png)
 
