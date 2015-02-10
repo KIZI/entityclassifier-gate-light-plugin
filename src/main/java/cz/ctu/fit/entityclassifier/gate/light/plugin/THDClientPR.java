@@ -99,7 +99,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param knowledgeBase the knowledgeBase to set
      */
-    @CreoleParameter(comment = "knowledge base", defaultValue="linkedHypernymsDataset")
+    @CreoleParameter(comment = "Specify which knowledge base should be used to retrieve types. Possible values: linkedHypernymsDataset/local/live", defaultValue="linkedHypernymsDataset")
     @RunTime
     public void setKnowledgeBase(String knowledgeBase) {
         this.knowledgeBase = knowledgeBase;
@@ -115,7 +115,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param entityType the entityType to set
      */
-    @CreoleParameter(comment = "entity type", defaultValue="ne")
+    @CreoleParameter(comment = "The types of entities to be processed from the text. Possible values: ne/ce/all", defaultValue="ne")
     @RunTime
     public void setEntityType(String entityType) {
         this.entityType = entityType;
@@ -131,7 +131,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param lang the lang to set
      */
-    @CreoleParameter(comment = "language", defaultValue="en")
+    @CreoleParameter(comment = "Language of the input text. You can choose between English, German and Dutch. Values: en/de/nl", defaultValue="en")
     @RunTime
     public void setLang(String lang) {
         this.lang = lang;
@@ -147,7 +147,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param provenance the provenance to set
      */
-    @CreoleParameter(comment = "provenance", defaultValue="thd,dbpedia")
+    @CreoleParameter(comment = "Provenance of the results. Possible values: thd/dbpedia/yago", defaultValue="thd,dbpedia")
     @RunTime
     public void setProvenance(String provenance) {
         this.provenance = provenance;
@@ -163,7 +163,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param typesFilter
      */
-    @CreoleParameter(comment = "typesFilter", defaultValue="dbo")
+    @CreoleParameter(comment = "Filter types to selected namespaces. You can filter out only types as DBpedia instances, DBpedia Ontology types, or both of them. Values: dbo/dbinstance/all", defaultValue="dbo")
     @RunTime
     public void setTypesFilter(String typesFilter) {
         this.typesFilter = typesFilter;
@@ -179,7 +179,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param linkingMethod
      */
-    @CreoleParameter(comment = "linkingMethod", defaultValue="LuceneSearchSkipDisPage")
+    @CreoleParameter(comment = "You can choose preferred entity linking (disambiguation) method. Possible values: SFISearch/LuceneSearch/LuceneSearchSkipDisPage/WikipediaSearch/AllVoting/SurfaceFormSimilarity", defaultValue="LuceneSearchSkipDisPage")
     @RunTime
     public void setLinkingMethod(String linkingMethod) {
         this.linkingMethod = linkingMethod;
@@ -195,7 +195,7 @@ public class THDClientPR extends AbstractLanguageAnalyser implements ProcessingR
     /**
      * @param typesFilter
      */
-    @CreoleParameter(comment = "spottingMethod", defaultValue="grammars")
+    @CreoleParameter(comment = "You can choose preferred entity spotting (recognition) method. Possible values: grammars/CRF", defaultValue="grammars")
     @RunTime
     public void setSpottingMethod(String spottingMethod) {
         this.spottingMethod = spottingMethod;
