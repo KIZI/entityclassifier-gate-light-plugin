@@ -40,6 +40,13 @@ This is a GATE plugin for the Entityclassifier.eu NER REST API. You can use it p
 
 
 
+Comparison: Stand-Alone vs. Light REST API plugin
+------
+
+![Plugin comparison](https://docs.google.com/drawings/d/1bdfpW38qSLj806KvDd6eMeq3YBOS4dTMynlQ-_5OLBg/pub?w=554&h=337)
+
+
+
 If you need any help/support with the plugin free to contact us. Bugs please report as issues to this repository.
 
 License
