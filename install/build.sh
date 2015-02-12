@@ -9,18 +9,21 @@
 
 echo "Compiling the plugin ..."
 cd ..
-mvn package
+
+mvn license:update-file-header
+mvn clean package
 
 echo "Copying compiled jar ..."
 cp target/Entityclassifier.eu_NER-LIGHT-1.0.jar Entityclassifier.eu_NER-LIGHT-1.0.jar 
 
-rm creole.xml
-echo "Creating creole.xml document."
-printf '%s\n' '<?xml version="1.0"?>' >> creole.xml
-printf '%s\n' '<CREOLE-DIRECTORY ID="org.vse.fis.keg.Entityclassifier NER Light" VERSION="1.0">' >> creole.xml
-printf '%s\n' '    <JAR scan="true">Entityclassifier.eu_NER-LIGHT-1.0.jar</JAR>' >> creole.xml
-printf '%s\n' '</CREOLE-DIRECTORY>' >> creole.xml
+#rm creole.xml
+#echo "Creating creole.xml document."
+#printf '%s\n' '<?xml version="1.0"?>' >> creole.xml
+#printf '%s\n' '<CREOLE-DIRECTORY ID="org.vse.fis.keg.Entityclassifier NER Light" VERSION="1.0">' >> creole.xml
+#printf '%s\n' '    <JAR scan="true">Entityclassifier.eu_NER-LIGHT-1.0.jar</JAR>' >> creole.xml
+#printf '%s\n' '</CREOLE-DIRECTORY>' >> creole.xml
 
+mvn clean
 
 echo "The plugin is prepared for use!"
 
